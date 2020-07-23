@@ -30,7 +30,7 @@ class Contact extends React.PureComponent {
 
     return (
       <div className='contact'>
-        <h1>Contact Information</h1>
+        <h1>Contact Cornerstock</h1>
         <hr />
         <form onSubmit={handleSubmit}>
           <Row>

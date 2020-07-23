@@ -66,21 +66,21 @@ class Navigation extends React.PureComponent {
         <div className='header-info'>
           <Container>
             <Row>
-              <Col md='4' className='text-center d-none d-md-block'>
+              {/* <Col md='4' className='text-center d-none d-md-block'>
                 <i className='fa fa-truck' />
                 <span>Free Shipping</span>
               </Col>
               <Col md='4' className='text-center d-none d-md-block'>
                 <i className='fa fa-credit-card' />
                 <span>Payment Methods</span>
-              </Col>
+              </Col> */}
               <Col md='4' className='text-center d-none d-md-block'>
                 <i className='fa fa-phone' />
-                <span>Call us 951-999-9999</span>
+                <span>Call Cornerstock 000-000-0000</span>
               </Col>
               <Col xs='12' className='text-center d-block d-md-none'>
                 <i className='fa fa-phone' />
-                <span> Need advice? Call us 951-999-9999</span>
+                <span> Need advice? Call us 000-000-0000</span>
               </Col>
             </Row>
           </Container>
@@ -164,7 +164,7 @@ class Navigation extends React.PureComponent {
                       to='/shop'
                       activeClassName='active'
                     >
-                      Shop
+                      Shops
                     </NavLink>
                   </NavItem>
                   {authenticated ? (
@@ -186,7 +186,7 @@ class Navigation extends React.PureComponent {
                   ) : (
                       <UncontrolledDropdown nav inNavbar>
                         <DropdownToggle nav>
-                          Welcome!
+                          Welcome To Cornerstock!
                         <span className='fa fa-chevron-down dropdown-caret'></span>
                         </DropdownToggle>
                         <DropdownMenu right>
