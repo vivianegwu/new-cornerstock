@@ -35,7 +35,7 @@ const AddProduct = props => {
       <form onSubmit={handleSubmit} noValidate>
         <Row>
           <Col xs='12' lg='6'>
-            {/* <Input
+            <Input
               type={'text'}
               error={formErrors['sku']}
               label={'Sku'}
@@ -45,7 +45,7 @@ const AddProduct = props => {
               onInputChange={(name, value) => {
                 productChange(name, value);
               }}
-            /> */}
+            />
           </Col>
           <Col xs='12' lg='6'>
             <Input
@@ -113,7 +113,7 @@ const AddProduct = props => {
             />
           </Col>
           <Col xs='12' md='12'>
-            {/* <SelectOption
+            <SelectOption
               error={formErrors['brand']}
               label={'Select Brand'}
               multi={false}
@@ -122,7 +122,7 @@ const AddProduct = props => {
               handleSelectChange={value => {
                 handleBrandSelect(value);
               }}
-            /> */}
+            />
           </Col>
         </Row>
         <hr />
