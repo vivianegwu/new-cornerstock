@@ -14,8 +14,7 @@ import Newsletter from '../../containers/Newsletter';
 const Footer = () => {
   const infoLinks = [
     { id: 0, name: 'Contact Us', to: '/contact' },
-    { id: 1, name: 'Sell With Us', to: '/sell' },
-    { id: 2, name: 'Shipping', to: '/shipping' }
+    { id: 1, name: 'Sell On Cornerstock', to: '/sell' },
   ];
 
   const footerBusinessLinks = (
@@ -76,11 +75,6 @@ const Footer = () => {
           <li>
             <a href='/#instagram' rel='noreferrer noopener' target='_blank'>
               <span className='instagram-icon' />
-            </a>
-          </li>
-          <li>
-            <a href='/#pinterest' rel='noreferrer noopener' target='_blank'>
-              <span className='pinterest-icon' />
             </a>
           </li>
           <li>
