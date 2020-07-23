@@ -12,6 +12,7 @@ import actions from '../../actions';
 
 import Admin from '../Admin';
 import Customer from '../Customer';
+import Merchant from '../Merchant'
 
 class Dashboard extends React.PureComponent {
   componentDidMount() {
