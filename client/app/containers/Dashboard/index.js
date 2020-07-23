@@ -22,9 +22,9 @@ class Dashboard extends React.PureComponent {
     const { user } = this.props;
 
     if (user.role === 'ROLE_MEMBER') {
-      return <Customer />;
-    } else {
       return <Admin />;
+    } else {
+      return <Customer />;
     }
   }
 }
