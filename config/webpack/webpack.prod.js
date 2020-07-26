@@ -136,10 +136,10 @@ module.exports = {
     }),
     new WebpackPwaManifest({
       name: 'Cornerstock',
-      short_name: 'MERNStore',
+      short_name: 'Cornerstock',
       description: 'Cornerstock!',
-      background_color: '#fff',
-      theme_color: '#4a68aa',
+      background_color: '#f47925',
+      theme_color: '#f47925',
       inject: true,
       ios: true,
       icons: [

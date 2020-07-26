@@ -10,12 +10,12 @@ const initialState = {
   isMenuOpen: false,
   adminLinks: [
     { to: '', name: 'account details' },
-    { to: '/products', name: 'manage products' },
-    { to: '/categories', name: 'manage categories' },
-    { to: '/brands', name: 'manage brands' },
-    { to: '/users', name: 'Manage Users' },
-    { to: '/merchants', name: 'Manage Merchants' },
-    { to: '/orders', name: 'Manage Orders' }
+    { to: '/products', name: 'products' },
+    { to: '/categories', name: 'categories' },
+    { to: '/brands', name: 'brands' },
+    { to: '/users', name: 'Users' },
+    { to: '/merchants', name: 'Merchants/Vendors' },
+    { to: '/orders', name: 'Orders' }
   ]
 };
 
