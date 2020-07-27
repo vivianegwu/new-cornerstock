@@ -1,5 +1,8 @@
 # Cornerstock
 
+### FETCHING PRODUCTS FROM DB
+To specify how products will be rendered on the landing page, go to client/app/containers/homepage
+
 
 ## Setup
 

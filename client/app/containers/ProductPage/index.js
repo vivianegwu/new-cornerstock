@@ -60,8 +60,8 @@ class ProductPage extends React.PureComponent {
                 {product.quantity < 0 && !shopFormErrors['quantity'] ? (
                   <p className='stock out-of-stock'>Out of stock</p>
                 ) : (
-                  <p className='stock in-stock'>In stock</p>
-                )}
+                    <p className='stock in-stock'>In stock</p>
+                  )}
               </div>
             </Col>
             <Col xs='12' md='7' lg='7' className='mb-3'>
@@ -114,24 +114,24 @@ class ProductPage extends React.PureComponent {
                         onClick={() => handleRemoveFromCart(product)}
                       />
                     ) : (
-                      <Button
-                        disabled={
-                          product.quantity <= 0 && !shopFormErrors['quantity']
-                        }
-                        text='Add To Bag'
-                        className='bag-btn'
-                        icon={<BagIcon />}
-                        onClick={() => handleAddToCart(product)}
-                      />
-                    )}
+                        <Button
+                          disabled={
+                            product.quantity <= 0 && !shopFormErrors['quantity']
+                          }
+                          text='Add To Cart'
+                          className='bag-btn'
+                          icon={<BagIcon />}
+                          onClick={() => handleAddToCart(product)}
+                        />
+                      )}
                   </div>
                 </div>
               </div>
             </Col>
           </Row>
         ) : (
-          <NotFound message='no product found.' />
-        )}
+              <NotFound message='no product found.' />
+            )}
       </div>
     );
   }

@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import actions from '../../actions';
 
 class Homepage extends React.PureComponent {
-  componentDidMount() {}
+  componentDidMount() { }
 
   render() {
     return <h1>Homepage</h1>;
