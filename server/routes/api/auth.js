@@ -6,8 +6,6 @@ const crypto = require('crypto');
 const passport = require('passport');
 
 const auth = require('../../middleware/auth');
-
-// Bring in Models & Helpers
 const User = require('../../models/user');
 const mailchimp = require('../../services/mailchimp');
 const mailgun = require('../../services/mailgun');

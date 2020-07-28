@@ -10,8 +10,8 @@ const checkRole = (...roles) => (req, res, next) => {
   }
 
   const hasRole = roles.find(role => req.user.role === role);
-  if (!hasRole) {
-    return res.status(403).send('You are not allowed to make this request.');
+  if (hasRole) {
+    return res.status(200).send('');
   }
 
   return next();
