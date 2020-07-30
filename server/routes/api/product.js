@@ -11,6 +11,7 @@ const role = require('../../middleware/role');
 router.post('/add', auth, role.checkRole(role.ROLES.Admin), (req, res) => {
   const sku = req.body.sku;
   const name = req.body.name;
+  const image =req.body.image;
   const description = req.body.description;
   const quantity = req.body.quantity;
   const price = req.body.price;
@@ -26,6 +27,11 @@ router.post('/add', auth, role.checkRole(role.ROLES.Admin), (req, res) => {
     return res
       .status(400)
       .json({ error: 'You must enter description & name.' });
+  }
+
+  if (!image) {
+    return res.status(400)
+    .json({ error: 'Please upload product image!' });
   }
 
   if (!quantity) {
@@ -52,6 +58,7 @@ router.post('/add', auth, role.checkRole(role.ROLES.Admin), (req, res) => {
     const product = new Product({
       sku,
       name,
+      image,
       description,
       quantity,
       price,

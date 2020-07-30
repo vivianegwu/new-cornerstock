@@ -24,6 +24,7 @@ const AddProduct = props => {
     taxableSelect
   } = props;
 
+
   const handleSubmit = event => {
     event.preventDefault();
     addProduct();
@@ -60,6 +61,21 @@ const AddProduct = props => {
               }}
             />
           </Col>
+          <Col xs='12' lg='6'>
+            <Input
+              type={'file'}
+              error={formErrors['image']}
+              label={'Image'}
+              name={'image'}
+              placeholder={'Product Image'}
+              value={productFormData.image}
+              onInputChange={(file, value) => {
+                productChange(file, value);
+              }}
+            />
+
+          </Col>
+
           <Col xs='12' md='12'>
             <Input
               type={'textarea'}

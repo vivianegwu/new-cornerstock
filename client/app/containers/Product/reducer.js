@@ -30,6 +30,7 @@ const initialState = {
   productFormData: {
     sku: '',
     name: '',
+    image: '',
     description: '',
     quantity: 1,
     price: 1,
@@ -59,6 +60,11 @@ const initialState = {
       dataField: 'name',
       text: 'Product Name',
       sort: true
+    },
+    {
+      dataField: 'image',
+      text: 'Product Image',
+      //sort: true
     },
     {
       dataField: 'description',
@@ -155,6 +161,7 @@ const productReducer = (state = initialState, action) => {
         productFormData: {
           sku: '',
           name: '',
+          image: '',
           description: '',
           quantity: 1,
           price: 0

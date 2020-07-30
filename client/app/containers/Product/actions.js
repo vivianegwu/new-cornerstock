@@ -87,14 +87,18 @@ export const fetchBrandProducts = slug => {
     } catch (error) {
       handleError(error, dispatch);
     } finally {
-      dispatch({ type: SET_PRODUCTS_LOADING, payload: false });
+      dispatch({ 
+        type: SET_PRODUCTS_LOADING, 
+        payload: false });
     }
   };
 };
 
 export const fetchCategoryProducts = slug => {
   return async (dispatch, getState) => {
-    dispatch({ type: SET_PRODUCTS_LOADING, payload: true });
+    dispatch({ 
+      type: SET_PRODUCTS_LOADING, 
+      payload: true });
 
     try {
       const response = await axios.get(`/api/product/list/category/${slug}`);
@@ -106,7 +110,9 @@ export const fetchCategoryProducts = slug => {
     } catch (error) {
       handleError(error, dispatch);
     } finally {
-      dispatch({ type: SET_PRODUCTS_LOADING, payload: false });
+      dispatch({ 
+        type: SET_PRODUCTS_LOADING,
+        payload: false });
     }
   };
 };
@@ -182,8 +188,9 @@ export const addProduct = () => {
   return async (dispatch, getState) => {
     try {
       const rules = {
-        sku: 'required|min:6',
+        sku: 'required|min:3',
         name: 'required|min:6',
+        image: 'required',
         description: 'required|min:10|max:100',
         quantity: 'required|numeric',
         price: 'required|numeric',

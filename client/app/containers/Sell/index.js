@@ -25,7 +25,7 @@ class Sell extends React.PureComponent {
 
     return (
       <div className='sell'>
-        <h1>Would you like to sell your products on Cornerstock!</h1>
+        <h1>Would you like to sell your products on Cornerstock?</h1>
         <hr />
         <form onSubmit={handleSubmit}>
           <Row>

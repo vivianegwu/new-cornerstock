@@ -13,7 +13,7 @@ import ToolkitProvider, {
 } from 'react-bootstrap-table2-toolkit';
 
 const indication = () => {
-  return 'Oops! No data now! Please try again!';
+  return 'No data';
 };
 
 const { ExportCSVButton } = CSVExport;

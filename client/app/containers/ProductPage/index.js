@@ -56,7 +56,7 @@ class ProductPage extends React.PureComponent {
           <Row>
             <Col xs='12' md='5' lg='5' className='mb-3'>
               <div className='item-image'>
-                <img src={'/images/placeholder-image.png'} />
+                <img src={product.image} />
                 {product.quantity < 0 && !shopFormErrors['quantity'] ? (
                   <p className='stock out-of-stock'>Out of stock</p>
                 ) : (
@@ -73,9 +73,9 @@ class ProductPage extends React.PureComponent {
                     <hr />
                     {product.brand && (
                       <p className='by'>
-                        see more from{' '}
+                        see more products from{' '}
                         <Link
-                          to={`/shop/brand/${product.brand.slug}`}
+                          to={`/shop/brand/${product.brand.merchant}`}
                           className='brand-link'
                         >
                           {product.brand.name}
