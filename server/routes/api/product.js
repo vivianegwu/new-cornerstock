@@ -18,7 +18,8 @@ router.post('/add', auth, role.checkRole(role.ROLES.Admin), (req, res) => {
   const brand = req.body.brand;
 
   if (!sku) {
-    return res.status(400).json({ error: 'You must enter sku.' });
+    return res.status(400)
+    .json({ error: 'You must enter sku.' });
   }
 
   if (!description || !name) {
@@ -28,11 +29,13 @@ router.post('/add', auth, role.checkRole(role.ROLES.Admin), (req, res) => {
   }
 
   if (!quantity) {
-    return res.status(400).json({ error: 'You must enter a quantity.' });
+    return res.status(400)
+    .json({ error: 'You must enter a quantity.' });
   }
 
   if (!price) {
-    return res.status(400).json({ error: 'You must enter a price.' });
+    return res.status(400)
+    .json({ error: 'You must enter a price.' });
   }
 
   Product.findOne({ sku }, (err, existingProduct) => {

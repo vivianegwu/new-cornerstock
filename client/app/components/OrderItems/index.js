@@ -47,7 +47,7 @@ const OrderItems = props => {
               <Col xs='4' md='3'>
                 <p>
                   Total Price
-                  <span className='order-label'>{` $${item.totalPrice}`}</span>
+                  <span className='order-label'>{` GH₵${item.totalPrice}`}</span>
                 </p>
               </Col>
             </Row>
