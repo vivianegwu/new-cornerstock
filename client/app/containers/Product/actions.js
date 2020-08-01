@@ -209,7 +209,9 @@ export const addProduct = () => {
       const { isValid, errors } = allFieldsValidation(newProduct, rules);
 
       if (!isValid) {
-        return dispatch({ type: SET_PRODUCT_FORM_ERRORS, payload: errors });
+        return dispatch({ 
+          type: SET_PRODUCT_FORM_ERRORS, 
+          payload: errors });
       }
 
       const response = await axios.post(`/api/product/add`, newProduct);

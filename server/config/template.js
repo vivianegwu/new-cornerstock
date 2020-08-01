@@ -67,7 +67,7 @@ exports.orderConfirmationEmail = order => {
     subject: `Order Confirmation ${order._id}`,
     text:
       `Hi ${order.user.profile.firstName}! Thank you for your order!. \n\n` +
-      `We've received your order and will contact you as soon as your package is shipped. \n\n`
+      `We've received your order and will contact you soon. \n\n`
   };
 
   return message;

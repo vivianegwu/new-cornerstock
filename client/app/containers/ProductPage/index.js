@@ -119,12 +119,26 @@ class ProductPage extends React.PureComponent {
                             product.quantity <= 0 && !shopFormErrors['quantity']
                           }
                           text='Add To Cart'
-                          className='bag-btn'
+                          className='bag-btn' 
                           icon={<BagIcon />}
                           onClick={() => handleAddToCart(product)}
                         />
                       )}
+                      
+                      <div>
+                        <Link to="../../components/map/index.js" className="btn btn-primary">Search For Shops On Map</Link>
+                      </div>
+
+                      {/* 
+                      <a href="https://api.whatsapp.com/send?phone=+26774266051" onClick={handleClick}>      
+                       Click me
+                      </a> */}
                   </div>
+                  
+                  <div>
+                 
+                  </div>
+                  
                 </div>
               </div>
             </Col>

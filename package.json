@@ -34,6 +34,7 @@
     "dropzone": "^5.7.2",
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
+    "google-map-react": "^2.0.2",
     "history": "^4.9.0",
     "jsonwebtoken": "^8.5.1",
     "mailchimp-api-v3": "^1.14.0",

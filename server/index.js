@@ -32,7 +32,7 @@ mongoose
     useFindAndModify: false
   })
   .then(() =>
-    console.log(`${chalk.green('✓')} ${chalk.blue('MongoDB Connected!')}`)
+    console.log(`${chalk.blue('✓')} ${chalk.green('MongoDB Connected!')}`)
   )
   .catch(err => console.log(err));
 

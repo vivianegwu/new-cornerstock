@@ -18,7 +18,7 @@ const OrderList = props => {
     return (
       <div className='item-box'>
         <div className='item-image'>
-          <img src={product.image} />
+          <img src={item.product.image} />
         </div>
       </div>
     );
