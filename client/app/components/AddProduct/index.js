@@ -36,7 +36,7 @@ const AddProduct = props => {
 
 
   const handleSubmit = event => {
-    event.preventDefault();
+    event.preventDefault();sf
     addProduct();
   };
 
