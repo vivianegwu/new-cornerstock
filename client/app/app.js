@@ -16,7 +16,7 @@ import setToken from './utils/token';
 import './styles/style.scss';
 
 // // Import Font Awesome Icons Set
-// import 'font-awesome/css/font-awesome.min.css';
+ import 'font-awesome/css/font-awesome.min.css';
 
 // // Import Simple Line Icons Set
 // import 'simple-line-icons/css/simple-line-icons.css';
