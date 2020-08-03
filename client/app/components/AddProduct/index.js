@@ -24,6 +24,16 @@ const AddProduct = props => {
     taxableSelect
   } = props;
 
+//   var ImageSchema = mongoose.model('ImageSchema ', ImageSchema );
+
+// //var imgPath = “D:/images/sample.jpg” ;
+
+// var imgData = fs.readFileSync(imgPath);
+
+// var Image = new ImageSchema({data:imgData ,contentType:'image/png'});
+
+// Image.save(function(err, image){});
+
 
   const handleSubmit = event => {
     event.preventDefault();

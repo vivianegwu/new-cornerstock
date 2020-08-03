@@ -20,6 +20,7 @@ import {
   FETCH_PRODUCTS_SELECT,
   SET_PRODUCTS_LOADING
 } from './constants';
+import { ItemAssignmentContext } from 'twilio/lib/rest/numbers/v2/regulatoryCompliance/bundle/itemAssignment';
 
 const initialState = {
   products: [],
