@@ -9,7 +9,8 @@ import { connect } from 'react-redux';
 
 import actions from '../../actions';
 import BrandList from '../../components/BrandList';
-import ToolkitProvider, {Search} from 'react-bootstrap-table2-toolkit';
+import { MDBCol, MDBInput } from "mdbreact";
+
 
 class Homepage extends React.PureComponent {
   componentDidMount() {
@@ -20,10 +21,17 @@ class Homepage extends React.PureComponent {
     const { brands } = this.props;
 
     return (
-
       <div className='brands-page'>
+      <MDBCol md="6">
+        <MDBInput 
+        hint="Search" 
+        type="text"
+         containerClass="active-pink active-pink-2 mt-0 mb-3" 
+         />
+      </MDBCol>
         <BrandList brands={brands} />
       </div>
+
     );
   }
 }
