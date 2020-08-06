@@ -18,6 +18,9 @@ import { BagIcon } from '../../components/Icon';
 import NotFound from '../../components/NotFound';
 import LoadingIndicator from '../../components/LoadingIndicator';
 
+import { FaMap, FaPhone, FaWhatsapp } from 'react-icons/fa'
+
+
 class ProductPage extends React.PureComponent {
   componentDidMount() {
     const slug = this.props.match.params.slug;
@@ -124,21 +127,12 @@ class ProductPage extends React.PureComponent {
                           onClick={() => handleAddToCart(product)}
                         />
                       )}
-                      
                       <div>
-                        <Link to="../../components/map/index.js" className="btn btn-primary">Search For Shops On Map</Link>
-                      </div>
-
-                      {/* 
-                      <a href="https://api.whatsapp.com/send?phone=+26774266051" onClick={handleClick}>      
-                       Click me
-                      </a> */}
+                      <Link to="../../components/map/index.js" className="btn"> <FaMap size={25}/></Link>
+                      <Link to="../../components/map/index.js" className="btn"> <FaPhone size={25}/></Link>
+                      <Link to="../../components/map/index.js" className="btn"> <FaWhatsapp size={25}/></Link>
                   </div>
-                  
-                  <div>
-                 
                   </div>
-                  
                 </div>
               </div>
             </Col>

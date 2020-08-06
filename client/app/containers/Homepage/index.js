@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 
 import actions from '../../actions';
 import BrandList from '../../components/BrandList';
+import ToolkitProvider, {Search} from 'react-bootstrap-table2-toolkit';
 
 class Homepage extends React.PureComponent {
   componentDidMount() {
@@ -19,6 +20,7 @@ class Homepage extends React.PureComponent {
     const { brands } = this.props;
 
     return (
+
       <div className='brands-page'>
         <BrandList brands={brands} />
       </div>
