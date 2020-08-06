@@ -129,7 +129,7 @@ class ProductPage extends React.PureComponent {
                       )}
                       <div>
                       <a href= 'http://www.google.com/maps' target="_blank" className="btn"> <FaMap size={25} style={{ fill: 'blue' }}/></a>
-                      <a href= 'https://www.google.com/maps' target="_blank" className="btn"> <FaPhone size={25} style={{ fill: 'red' }}/></a>
+                      <a href="tel:5551234567" className="btn"> <FaPhone size={25} style={{ fill: 'red' }}/></a>
                       <a href= 'https://wa.me?text=Im%20inquiring%20about%20the%20apartment%20listed%20on%20cornerstock`' target="_blank" className="btn"> <FaWhatsapp size={25} style={{ fill: 'green' }}/></a>
                   </div>
                   </div>
