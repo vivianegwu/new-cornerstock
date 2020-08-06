@@ -9,7 +9,7 @@ const auth = require('../../middleware/auth');
 const role = require('../../middleware/role');
 
 router.post('/add', auth, role.checkRole(role.ROLES.Admin), (req, res) => {
-  const sku = req.body.sku;
+  const whatsapp = req.body.whatsapp;
   const name = req.body.name;
   const image = req.body.image;
   const description = req.body.description;
@@ -18,9 +18,9 @@ router.post('/add', auth, role.checkRole(role.ROLES.Admin), (req, res) => {
   const taxable = req.body.taxable;
   const brand = req.body.brand;
 
-  if (!sku) {
+  if (!whatsapp) {
     return res.status(400)
-    .json({ error: 'You must enter sku.' });
+    .json({ error: 'You must enter whatsapp.' });
   }
 
   if (!description || !name) {
@@ -44,7 +44,7 @@ router.post('/add', auth, role.checkRole(role.ROLES.Admin), (req, res) => {
     .json({ error: 'You must enter a price.' });
   }
 
-  Product.findOne({ sku }, (err, existingProduct) => {
+  Product.findOne({ whatsapp }, (err, existingProduct) => {
     if (err) {
       return res.status(400).json({
         error: 'Your request could not be processed. Please try again.'
@@ -52,11 +52,11 @@ router.post('/add', auth, role.checkRole(role.ROLES.Admin), (req, res) => {
     }
 
     if (existingProduct) {
-      return res.status(400).json({ error: 'This sku is already in use.' });
+      return res.status(400).json({ error: 'This whatsapp is already in use.' });
     }
 
     const product = new Product({
-      sku,
+      whatsapp,
       name,
       image,
       description,

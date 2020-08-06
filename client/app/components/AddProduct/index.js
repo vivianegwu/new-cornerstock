@@ -24,19 +24,8 @@ const AddProduct = props => {
     taxableSelect
   } = props;
 
-//   var ImageSchema = mongoose.model('ImageSchema ', ImageSchema );
-
-// //var imgPath = “D:/images/sample.jpg” ;
-
-// var imgData = fs.readFileSync(imgPath);
-
-// var Image = new ImageSchema({data:imgData ,contentType:'image/png'});
-
-// Image.save(function(err, image){});
-
-
   const handleSubmit = event => {
-    event.preventDefault();sf
+    event.preventDefault();
     addProduct();
   };
 
@@ -48,11 +37,11 @@ const AddProduct = props => {
           <Col xs='12' lg='6'>
             <Input
               type={'text'}
-              error={formErrors['sku']}
-              label={'Sku'}
-              name={'sku'}
-              placeholder={'Product Sku'}
-              value={productFormData.sku}
+              error={formErrors['whatsapp']}
+              label={'Whatsapp'}
+              name={'whatsapp'}
+              placeholder={'Shop Whatsapp Number'}
+              value={productFormData.whatsapp}
               onInputChange={(name, value) => {
                 productChange(name, value);
               }}
@@ -71,6 +60,7 @@ const AddProduct = props => {
               }}
             />
           </Col>
+
           <Col xs='12' lg='6'>
             <Input
               type={'file'}
@@ -85,7 +75,6 @@ const AddProduct = props => {
             />
 
           </Col>
-
           <Col xs='12' md='12'>
             <Input
               type={'textarea'}
