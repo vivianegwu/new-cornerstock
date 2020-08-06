@@ -128,9 +128,9 @@ class ProductPage extends React.PureComponent {
                         />
                       )}
                       <div>
-                      <Link to="../../components/map/index.js" className="btn"> <FaMap size={25}/></Link>
-                      <Link to="../../components/map/index.js" className="btn"> <FaPhone size={25}/></Link>
-                      <Link to="../../components/map/index.js" className="btn"> <FaWhatsapp size={25}/></Link>
+                      <Link to="../../components/map/index.js" className="btn"> <FaMap size={25} style={{ fill: 'blue' }}/></Link>
+                      <Link to="../../components/map/index.js" className="btn"> <FaPhone size={25} style={{ fill: 'red' }}/></Link>
+                      <Link to="../../components/map/index.js" className="btn"> <FaWhatsapp size={25} style={{ fill: 'green' }}/></Link>
                   </div>
                   </div>
                 </div>
