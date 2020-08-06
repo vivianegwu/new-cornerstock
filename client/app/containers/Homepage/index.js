@@ -8,17 +8,28 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import actions from '../../actions';
+import BrandList from '../../components/BrandList';
 
 class Homepage extends React.PureComponent {
-  componentDidMount() { }
+  componentDidMount() {
+   this.props.fetchBrands();
+  }
 
   render() {
-    return <h1>Homepage</h1>;
+    const { brands } = this.props;
+
+    return (
+      <div className='brands-page'>
+        <BrandList brands={brands} />
+      </div>
+    );
   }
 }
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    brands: state.brand.brands
+  };
 };
 
 export default connect(mapStateToProps, actions)(Homepage);
