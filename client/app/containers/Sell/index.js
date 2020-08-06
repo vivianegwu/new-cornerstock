@@ -55,7 +55,7 @@ class Sell extends React.PureComponent {
                 }}
               />
             </Col>
-            {/* <Col xs='12' md='6'>
+            <Col xs='12' md='6'>
               <Input
                 type={'text'}
                 error={formErrors['phoneNumber']}
@@ -67,7 +67,7 @@ class Sell extends React.PureComponent {
                   sellFormChange(name, value);
                 }}
               />
-            </Col> */}
+            </Col>
             <Col xs='12' md='6'>
               <Input
                 type={'text'}

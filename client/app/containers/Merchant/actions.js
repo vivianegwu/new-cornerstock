@@ -35,7 +35,7 @@ export const sellWithUs = () => {
       const rules = {
         name: 'required',
         email: 'required|email',
-        phoneNumber: ['required', `regex:${phoneno}`],
+        phoneNumber: 'required',
         brand: 'required',
         business: 'required|min:10'
       };
