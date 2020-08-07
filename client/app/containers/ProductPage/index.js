@@ -18,7 +18,7 @@ import { BagIcon } from '../../components/Icon';
 import NotFound from '../../components/NotFound';
 import LoadingIndicator from '../../components/LoadingIndicator';
 
-import { FaMap, FaPhone, FaWhatsapp } from 'react-icons/fa'
+import { FaMap, FaPhone, FaWhatsapp, FaMapMarker } from 'react-icons/fa'
 
 
 class ProductPage extends React.PureComponent {
@@ -73,6 +73,8 @@ class ProductPage extends React.PureComponent {
                   <div className='item-details'>
                     <h1 className='item-name'>{product.name}</h1>
                     <p className='whatsapp'><FaWhatsapp size={25} style={{ fill: 'green' }}/> {product.whatsapp}</p>
+                    {/* <p className="address"><FaMapMarker size={25} style={{ fill: 'red' }}/>{product.address}</p> */}
+                    <a href= 'http://www.google.com/maps/' target="_blank" className="btn"><FaMapMarker size={25} style={{ fill: 'red' }}/>{product.address}</a>
                     <hr />
                     {product.brand && (
                       <p className='by'>
@@ -129,8 +131,21 @@ class ProductPage extends React.PureComponent {
                       )}
                       <div>
                       <a href= 'http://www.google.com/maps' target="_blank" className="btn"> <FaMap size={25} style={{ fill: 'blue' }}/></a>
+
                       <a href="tel:5551234567" className="btn"> <FaPhone size={25} style={{ fill: 'red' }}/></a>
-                      <a href= 'https://wa.me?text=Im%20inquiring%20about%20the%20apartment%20listed%20on%20cornerstock`' target="_blank" className="btn"> <FaWhatsapp size={25} style={{ fill: 'green' }}/></a>
+
+                      <a href= "https://api.whatsapp.com/send?text=Hi, I'm inquiring about this item listed on cornerstock."
+                      class="social-icon whatsapp" 
+                      target="_blank" 
+                      className="btn"> 
+                      <FaWhatsapp 
+                      size={25} 
+                      style={{ 
+                        fill: 'green' 
+                        }}
+                        
+                        />
+                        </a>
                   </div>
                   </div>
                 </div>

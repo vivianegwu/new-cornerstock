@@ -31,6 +31,7 @@ const initialState = {
   productFormData: {
     whatsapp: '',
     name: '',
+    address: '',
     image: '',
     description: '',
     quantity: 1,
@@ -55,12 +56,16 @@ const initialState = {
     },
     {
       dataField: 'whatsapp',
-      text: 'Product Whatsapp'
+      text: 'Shop Whatsapp Number'
     },
     {
       dataField: 'name',
       text: 'Product Name',
       sort: true
+    },
+    {
+      dataField: 'address',
+      text: 'Shop Address'
     },
     {
       dataField: 'image',
@@ -162,6 +167,7 @@ const productReducer = (state = initialState, action) => {
         productFormData: {
           whatsapp: '',
           name: '',
+          address: '',
           image: '',
           description: '',
           quantity: 1,
