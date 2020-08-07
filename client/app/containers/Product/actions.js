@@ -4,8 +4,8 @@
  *
  */
 
-import { success } from 'react-notification-system-redux';
-import axios from 'axios';
+import { success } from "react-notification-system-redux";
+import axios from "axios";
 
 import {
   FETCH_PRODUCTS,
@@ -19,22 +19,23 @@ import {
   REMOVE_PRODUCT,
   PRODUCT_SELECT,
   FETCH_PRODUCTS_SELECT,
-  SET_PRODUCTS_LOADING
-} from './constants';
+  SET_PRODUCTS_LOADING,
+} from "./constants";
 
-import { RESET_BRAND } from '../Brand/constants';
+import { RESET_BRAND } from "../Brand/constants";
 
-import handleError from '../../utils/error';
-import { formatSelectOptions } from '../../helpers/select';
-import { allFieldsValidation } from '../../utils/validation';
+import handleError from "../../utils/error";
+import { formatSelectOptions } from "../../helpers/select";
+import { allFieldsValidation } from "../../utils/validation";
 
 export const productChange = (name, value) => {
   let formData = {};
+
   formData[name] = value;
 
   return {
     type: PRODUCT_CHANGE,
-    payload: formData
+    payload: formData,
   };
 };
 
@@ -44,13 +45,13 @@ export const productShopChange = (name, value) => {
 
   return {
     type: PRODUCT_SHOP_CHANGE,
-    payload: formData
+    payload: formData,
   };
 };
 
 export const toggleAddProduct = () => {
   return {
-    type: TOGGLE_ADD_PRODUCT
+    type: TOGGLE_ADD_PRODUCT,
   };
 };
 
@@ -63,7 +64,7 @@ export const fetchProducts = (filter, slug) => {
 
       dispatch({
         type: FETCH_PRODUCTS,
-        payload: response.data.products
+        payload: response.data.products,
       });
     } catch (error) {
       handleError(error, dispatch);
@@ -74,7 +75,7 @@ export const fetchProducts = (filter, slug) => {
 };
 
 //product image
-export const fetchImageProducts = slug => {
+export const fetchImageProducts = (slug) => {
   return async (dispatch, getState) => {
     dispatch({ type: SET_PRODUCTS_LOADING, payload: true });
 
@@ -83,19 +84,20 @@ export const fetchImageProducts = slug => {
 
       dispatch({
         type: FETCH_PRODUCTS,
-        payload: response.data.products
+        payload: response.data.products,
       });
     } catch (error) {
       handleError(error, dispatch);
     } finally {
-      dispatch({ 
-        type: SET_PRODUCTS_LOADING, 
-        payload: false });
+      dispatch({
+        type: SET_PRODUCTS_LOADING,
+        payload: false,
+      });
     }
   };
 };
 
-export const fetchBrandProducts = slug => {
+export const fetchBrandProducts = (slug) => {
   return async (dispatch, getState) => {
     dispatch({ type: SET_PRODUCTS_LOADING, payload: true });
 
@@ -104,42 +106,45 @@ export const fetchBrandProducts = slug => {
 
       dispatch({
         type: FETCH_PRODUCTS,
-        payload: response.data.products
+        payload: response.data.products,
       });
     } catch (error) {
       handleError(error, dispatch);
     } finally {
-      dispatch({ 
-        type: SET_PRODUCTS_LOADING, 
-        payload: false });
+      dispatch({
+        type: SET_PRODUCTS_LOADING,
+        payload: false,
+      });
     }
   };
 };
 
-export const fetchCategoryProducts = slug => {
+export const fetchCategoryProducts = (slug) => {
   return async (dispatch, getState) => {
-    dispatch({ 
-      type: SET_PRODUCTS_LOADING, 
-      payload: true });
+    dispatch({
+      type: SET_PRODUCTS_LOADING,
+      payload: true,
+    });
 
     try {
       const response = await axios.get(`/api/product/list/category/${slug}`);
 
       dispatch({
         type: FETCH_PRODUCTS,
-        payload: response.data.products
+        payload: response.data.products,
       });
     } catch (error) {
       handleError(error, dispatch);
     } finally {
-      dispatch({ 
+      dispatch({
         type: SET_PRODUCTS_LOADING,
-        payload: false });
+        payload: false,
+      });
     }
   };
 };
 
-export const fetchProduct = slug => {
+export const fetchProduct = (slug) => {
   return async (dispatch, getState) => {
     dispatch({ type: SET_PRODUCTS_LOADING, payload: true });
 
@@ -148,7 +153,7 @@ export const fetchProduct = slug => {
 
       dispatch({
         type: FETCH_PRODUCT,
-        payload: response.data.product
+        payload: response.data.product,
       });
     } catch (error) {
       handleError(error, dispatch);
@@ -158,10 +163,10 @@ export const fetchProduct = slug => {
   };
 };
 
-export const handleProductSelect = value => {
+export const handleProductSelect = (value) => {
   return {
     type: PRODUCT_SELECT,
-    payload: value
+    payload: value,
   };
 };
 
@@ -174,7 +179,7 @@ export const fetchProductsSelect = () => {
 
       dispatch({
         type: FETCH_PRODUCTS_SELECT,
-        payload: formattedProducts
+        payload: formattedProducts,
       });
     } catch (error) {
       handleError(error, dispatch);
@@ -189,15 +194,15 @@ export const deleteProduct = (id, index) => {
 
       const successfulOptions = {
         title: `${response.data.message}`,
-        position: 'tr',
-        autoDismiss: 1
+        position: "tr",
+        autoDismiss: 1,
       };
 
       if (response.data.success === true) {
         dispatch(success(successfulOptions));
         dispatch({
           type: REMOVE_PRODUCT,
-          payload: index
+          payload: index,
         });
       }
     } catch (error) {
@@ -210,46 +215,63 @@ export const addProduct = () => {
   return async (dispatch, getState) => {
     try {
       const rules = {
-        whatsapp: 'required|min:5',
-        name: 'required|min:6',
-        address: 'required',
-        image: 'required',
-        description: 'required|min:10|max:100',
-        quantity: 'required|numeric',
-        price: 'required|numeric',
-        taxable: 'required',
-        brand: 'required'
+        whatsapp: "required|min:5",
+        name: "required|min:6",
+        address: "required",
+        image: "required",
+        description: "required|min:10|max:100",
+        quantity: "required|numeric",
+        price: "required|numeric",
+        taxable: "required",
+        brand: "required",
       };
 
       const product = getState().product.productFormData;
       const brand = getState().brand.selectedBrands.value;
 
+      const fd = new FormData();
+      fd.append("whatsapp", product.whatsapp);
+      fd.append("name", product.name);
+      fd.append("image", product.image);
+      fd.append("description", product.description);
+      fd.append("quantity", product.quantity);
+      fd.append("price", product.price);
+      fd.append("taxable", product.taxable);
+      fd.append("brand", brand);
+
       const newProduct = {
         ...product,
-        brand: brand
+        brand: brand,
       };
 
       const { isValid, errors } = allFieldsValidation(newProduct, rules);
 
       if (!isValid) {
-        return dispatch({ 
-          type: SET_PRODUCT_FORM_ERRORS, 
-          payload: errors });
+        return dispatch({
+          type: SET_PRODUCT_FORM_ERRORS,
+          payload: errors,
+        });
       }
 
-      const response = await axios.post(`/api/product/add`, newProduct);
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      };
+
+      const response = await axios.post(`/api/product/add`, fd, config);
 
       const successfulOptions = {
         title: `${response.data.message}`,
-        position: 'tr',
-        autoDismiss: 1
+        position: "tr",
+        autoDismiss: 1,
       };
 
       if (response.data.success === true) {
         dispatch(success(successfulOptions));
         dispatch({
           type: ADD_PRODUCT,
-          payload: response.data.product
+          payload: response.data.product,
         });
         dispatch({ type: RESET_PRODUCT });
         dispatch({ type: RESET_BRAND });
