@@ -59,7 +59,8 @@ class ProductPage extends React.PureComponent {
           <Row>
             <Col xs='12' md='5' lg='5' className='mb-3'>
               <div className='item-image'>
-                <img src= {'/images/product-placeholder.jpg'} />
+                {/* <img src= {'/images/product-placeholder.jpg'} /> */}
+                <img src= {`/images/products/${product.slug}.jpg`} />
                 {product.quantity < 0 && !shopFormErrors['quantity'] ? (
                   <p className='stock out-of-stock'>Out of stock</p>
                 ) : (
