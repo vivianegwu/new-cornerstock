@@ -11,6 +11,7 @@ const role = require('../../middleware/role');
 router.post('/add', auth, role.checkRole(role.ROLES.Admin), (req, res) => {
   const whatsapp = req.body.whatsapp;
   const name = req.body.name;
+  const address = req.body.address;
   const image = req.body.image;
   const description = req.body.description;
   const quantity = req.body.quantity;
@@ -27,6 +28,11 @@ router.post('/add', auth, role.checkRole(role.ROLES.Admin), (req, res) => {
     return res
       .status(400)
       .json({ error: 'You must enter description & name.' });
+  }
+
+  if (!address) {
+    return res.status(400)
+    .json({ error: 'Please enter shop address!' });
   }
 
   if (!image) {
@@ -58,6 +64,7 @@ router.post('/add', auth, role.checkRole(role.ROLES.Admin), (req, res) => {
     const product = new Product({
       whatsapp,
       name,
+      address,
       image,
       description,
       quantity,

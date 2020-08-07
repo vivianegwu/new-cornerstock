@@ -19,6 +19,9 @@ const ProductSchema = new Schema({
     type: String,
     trim: true
   },
+  address : {
+    type: String
+  },
   slug: { 
     type: String, 
     slug: 'name', 

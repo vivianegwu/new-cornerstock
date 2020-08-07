@@ -25,7 +25,7 @@ class App extends Component {
                 lng: 28.9784
                  },
             map: map,
-            title: 'Hello Istanbul!'
+            title: ''
           });
         }}
       />
