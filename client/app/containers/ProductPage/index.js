@@ -72,24 +72,41 @@ class ProductPage extends React.PureComponent {
                 <div className='item-box'>
                   <div className='item-details'>
                     <h1 className='item-name'>{product.name}</h1>
-                    <p className='whatsapp'><FaWhatsapp size={25} style={{ fill: 'green' }}/> {product.whatsapp}</p>
+                    {/* <p className='whatsapp'><FaWhatsapp size={25} style={{ fill: 'green' }}/> {product.whatsapp}</p> */}
                     {/* <p className="address"><FaMapMarker size={25} style={{ fill: 'red' }}/>{product.address}</p> */}
-                    <a href= 'http://www.google.com/maps/' target="_blank" className="btn"><FaMapMarker size={25} style={{ fill: 'red' }}/>{product.address}</a>
+
+                    <a href= "https://api.whatsapp.com/send?text=Hi, I'm inquiring about this item listed on cornerstock." 
+                        target="_blank" 
+                        className="btn">
+                        <FaWhatsapp 
+                        size={25} 
+                        style={{ fill: 'green' }}/>{product.whatsapp}
+                    </a>
+
+                    <br/>
+
+                    <a href= 'http://www.google.com/maps/' 
+                        target="_blank" 
+                        className="btn">
+                        <FaMapMarker 
+                        size={25} 
+                        style={{ fill: 'red' }}/>{product.address}
+                    </a>
+
                     <hr />
                     {product.brand && (
                       <p className='by'>
                         see more products from{' '}
-                        <Link
-                          to={`/shop/brand/${product.brand.merchant}`}
-                          className='brand-link'
-                        >
+                        <Link to={`/shop/brand/${product.brand.merchant}`} className='brand-link'>
                           {product.brand.name}
                         </Link>
                       </p>
                     )}
+
                     <p className='item-desc'>{product.description}</p>
                     <p className='price'>GH₵{product.price}</p>
                   </div>
+                  
                   <div className='item-customize'>
                     <Input
                       type={'number'}
