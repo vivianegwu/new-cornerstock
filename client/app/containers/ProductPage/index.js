@@ -87,7 +87,7 @@ class ProductPage extends React.PureComponent {
 
                     <br />
 
-                    <a href={"http://www.google.com/maps/" + product.address}
+                    <a href={"http://www.google.com/maps/place/" + product.address}
                       target="_blank"
                       className="btn"
                     >
