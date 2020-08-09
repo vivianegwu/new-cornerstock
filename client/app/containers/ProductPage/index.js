@@ -77,8 +77,7 @@ class ProductPage extends React.PureComponent {
                     {/* <p className='whatsapp'><FaWhatsapp size={25} style={{ fill: 'green' }}/> {product.whatsapp}</p> */}
                     {/* <p className="address"><FaMapMarker size={25} style={{ fill: 'red' }}/>{product.address}</p> */}
 
-                    <a
-                      href={"https://api.whatsapp.com/send?phone=" + product.whatsapp}
+                    <a href={"https://api.whatsapp.com/send?phone=" + product.whatsapp}
                       target="_blank"
                       className="btn"
                     >
@@ -88,14 +87,20 @@ class ProductPage extends React.PureComponent {
 
                     <br />
 
-                    <a
-                      href="http://www.google.com/maps/"
+                    <a href={"http://www.google.com/maps/" + product.address}
                       target="_blank"
                       className="btn"
                     >
                       <FaMapMarker size={25} style={{ fill: "red" }} />
                       {product.address}
                     </a>
+
+                    <br />
+
+                    <a href="tel:5551234567" className="btn">
+                        {" "}
+                        <FaPhone size={25} style={{ fill: "red" }} />
+                      </a>
 
                     <hr />
                     {product.brand && (
@@ -154,33 +159,6 @@ class ProductPage extends React.PureComponent {
                       />
                     )}
                     <div>
-                      <a
-                        href="http://www.google.com/maps"
-                        target="_blank"
-                        className="btn"
-                      >
-                        {" "}
-                        <FaMap size={25} style={{ fill: "blue" }} />
-                      </a>
-
-                      <a href="tel:5551234567" className="btn">
-                        {" "}
-                        <FaPhone size={25} style={{ fill: "red" }} />
-                      </a>
-
-                      <a
-                        href="https://api.whatsapp.com/send?text=Hi, I'm inquiring about this item listed on cornerstock."
-                        class="social-icon whatsapp"
-                        target="_blank"
-                        className="btn"
-                      >
-                        <FaWhatsapp
-                          size={25}
-                          style={{
-                            fill: "green",
-                          }}
-                        />
-                      </a>
                     </div>
                   </div>
                 </div>
