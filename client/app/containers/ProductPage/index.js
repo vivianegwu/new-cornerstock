@@ -18,9 +18,9 @@ import { BagIcon } from "../../components/Icon";
 import NotFound from "../../components/NotFound";
 import LoadingIndicator from "../../components/LoadingIndicator";
 
-import { FaMap, FaPhone, FaWhatsapp, FaMapMarker } from "react-icons/fa";
+// import { FaMap, FaPhone, FaWhatsapp, FaMapMarker } from "react-icons/fa";
 
-import { FaMap, FaPhone, FaWhatsapp } from "react-icons/fa";
+import { FaMap, FaPhone, FaWhatsapp, FaMapMarker } from "react-icons/fa";
 
 class ProductPage extends React.PureComponent {
   componentDidMount() {
@@ -78,7 +78,7 @@ class ProductPage extends React.PureComponent {
                     {/* <p className="address"><FaMapMarker size={25} style={{ fill: 'red' }}/>{product.address}</p> */}
 
                     <a
-                      href="https://api.whatsapp.com/send?text=Hi, I'm inquiring about this item listed on cornerstock."
+                      href={"https://api.whatsapp.com/send?phone=" + product.whatsapp}
                       target="_blank"
                       className="btn"
                     >

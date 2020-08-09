@@ -16,6 +16,7 @@ import hcbgImage from "../../../public/images/shop-owner.jpg";
 class Homepage extends React.PureComponent {
   componentDidMount() {
    this.props.fetchBrands();
+   
 }
 
   render() {
