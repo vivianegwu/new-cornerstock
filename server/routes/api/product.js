@@ -28,6 +28,7 @@ router.post(
   (req, res) => {
     const whatsapp = req.body.whatsapp;
     const name = req.body.name;
+    const address = req.body.address;
     const image = req.file.path;
     const description = req.body.description;
     const quantity = req.body.quantity;
@@ -45,12 +46,21 @@ router.post(
         .json({ error: "You must enter description & name." });
     }
 
+    if (!address) {
+      return res.status(400)
+      .json({ error: "Please enter shop address!" });
+    }
+
     if (!image) {
       return res.status(400).json({ error: "Please upload product image!" });
     }
 
     if (!quantity) {
       return res.status(400).json({ error: "You must enter a quantity." });
+    }
+
+    if (!price) {
+      return res.status(400).json({ error: "You must enter a price." });
     }
 
     const product = new Product({
@@ -81,6 +91,7 @@ router.post(
       const product = new Product({
         whatsapp,
         name,
+        address,
         image,
         description,
         quantity,

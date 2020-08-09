@@ -232,6 +232,7 @@ export const addProduct = () => {
       const fd = new FormData();
       fd.append("whatsapp", product.whatsapp);
       fd.append("name", product.name);
+      fd.append("address", product.address);
       fd.append("image", product.image);
       fd.append("description", product.description);
       fd.append("quantity", product.quantity);

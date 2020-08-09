@@ -27,11 +27,6 @@ const ProductSchema = new Schema({
   address: {
     type: String,
   },
-  slug: {
-    type: String,
-    slug: "name",
-    unique: true,
-  },
   image: {
     type: String,
   },

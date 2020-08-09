@@ -61,6 +61,20 @@ const AddProduct = (props) => {
             />
           </Col>
 
+          <Col xs='12' lg='6'>
+            <Input
+              type={'text'}
+              error={formErrors['address']}
+              label={'Address'}
+              name={'address'}
+              placeholder={'Shop Address'}
+              value={productFormData.address}
+              onInputChange={(name, value) => {
+                productChange(name, value);
+              }}
+            />
+          </Col>
+
           <Col xs="12" lg="6">
             <Input
               type={"file"}
