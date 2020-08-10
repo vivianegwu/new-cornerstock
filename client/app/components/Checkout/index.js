@@ -4,21 +4,23 @@
  *
  */
 
-import React from 'react';
+import React from "react";
 
-import Button from '../../components/Button';
+import { Container, Row, Col } from "reactstrap";
 
-const Checkout = props => {
+import Button from "../../components/Button";
+
+const Checkout = (props) => {
   const { authenticated, handleShopping, handleCheckout, placeOrder } = props;
 
   return (
-    <div className='easy-checkout'>
-      <div className='checkout-actions'>
-        <Button text='Continue shopping' onClick={() => handleShopping()} />
+    <div className="easy-checkout">
+      <div className="checkout-actions">
+        <Button text="Continue shopping" onClick={() => handleShopping()} />
         {authenticated ? (
-          <Button text='Place Order' onClick={() => placeOrder()} />
+          <Button text="Place Order" onClick={() => placeOrder()} />
         ) : (
-          <Button text='Proceed To Checkout' onClick={() => handleCheckout()} />
+          <Button text="Proceed To Checkout" onClick={() => handleCheckout()} />
         )}
       </div>
     </div>
