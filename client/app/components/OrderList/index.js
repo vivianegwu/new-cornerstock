@@ -45,7 +45,7 @@ const OrderList = props => {
                 </p>
                 <p>
                   Order Total
-                  <span className='order-label'>{` GH₵${order.total}`}</span>
+                  <span className='order-label'>{` ₦${order.total}`}</span>
                 </p>
                 <Link to={`/order/${order._id}`} className='redirect-link'>
                   See Details

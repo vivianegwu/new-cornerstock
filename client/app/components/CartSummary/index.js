@@ -19,7 +19,7 @@ const CartSummary = (props) => {
             <p className="summary-label">Total</p>
           </Col>
           <Col xs="3" className="text-right">
-            <p className="summary-value">GH₵{cartTotal}</p>
+            <p className="summary-value">₦{cartTotal}</p>
           </Col>
         </Row>
       </Container>

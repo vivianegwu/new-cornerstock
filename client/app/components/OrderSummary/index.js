@@ -19,7 +19,7 @@ const OrderSummary = props => {
           <p className='summary-label'>Subtotal</p>
         </Col>
         <Col xs='3' className='text-right'>
-          <p className='summary-value'>GH₵{order.total}</p>
+          <p className='summary-value'>₦{order.total}</p>
         </Col>
       </Row>
       <Row className='mb-2 summary-item'>
@@ -27,7 +27,7 @@ const OrderSummary = props => {
           <p className='summary-label'>Est. Sales Tax</p>
         </Col>
         <Col xs='3' className='text-right'>
-          <p className='summary-value'>GH₵{order.totalTax}</p>
+          <p className='summary-value'>₦{order.totalTax}</p>
         </Col>
       </Row>
       <Row className='mb-2 summary-item'>
@@ -35,7 +35,7 @@ const OrderSummary = props => {
           <p className='summary-label'>Shipping & Handling</p>
         </Col>
         <Col xs='3' className='text-right'>
-          <p className='summary-value'>GH₵0</p>
+          <p className='summary-value'>₦0</p>
         </Col>
       </Row>
       <hr />
@@ -44,7 +44,7 @@ const OrderSummary = props => {
           <p className='summary-label'>Total</p>
         </Col>
         <Col xs='3' className='text-right'>
-          <p className='summary-value'>GH₵{order.totalWithTax}</p>
+          <p className='summary-value'>₦{order.totalWithTax}</p>
         </Col>
       </Row>
     </Col>

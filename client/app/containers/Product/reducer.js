@@ -18,9 +18,9 @@ import {
   REMOVE_PRODUCT,
   PRODUCT_SELECT,
   FETCH_PRODUCTS_SELECT,
-  SET_PRODUCTS_LOADING
-} from './constants';
-import { ItemAssignmentContext } from 'twilio/lib/rest/numbers/v2/regulatoryCompliance/bundle/itemAssignment';
+  SET_PRODUCTS_LOADING,
+} from "./constants";
+import { ItemAssignmentContext } from "twilio/lib/rest/numbers/v2/regulatoryCompliance/bundle/itemAssignment";
 
 const initialState = {
   products: [],
@@ -29,65 +29,70 @@ const initialState = {
   selectedProducts: [],
   isProductAddOpen: false,
   productFormData: {
-    whatsapp: '',
-    name: '',
-    image: '',
-    description: '',
+    whatsapp: "",
+    name: "",
+    address: "",
+    image: "",
+    description: "",
     quantity: 1,
     price: 1,
-    taxable: 0
+    taxable: 0,
   },
   isLoading: false,
   productShopData: {
-    quantity: 1
+    quantity: 1,
   },
   taxableSelect: [
-    { value: 1, label: 'Yes' },
-    { value: 0, label: 'No' }
+    { value: 1, label: "Yes" },
+    { value: 0, label: "No" },
   ],
   formErrors: {},
   shopFormErrors: {},
   columns: [
     {
       hidden: true,
-      dataField: '_id',
-      text: ''
+      dataField: "_id",
+      text: "",
     },
     {
-      dataField: 'whatsapp',
-      text: 'Product Whatsapp'
+      dataField: "whatsapp",
+      text: "Shop Whatsapp Number",
     },
     {
-      dataField: 'name',
-      text: 'Product Name',
-      sort: true
+      dataField: "name",
+      text: "Product Name",
+      sort: true,
     },
     {
-      dataField: 'image',
-      text: 'Product Image',
+      dataField: "address",
+      text: "Shop Address",
+    },
+    {
+      dataField: "image",
+      text: "Product Image",
       //sort: true
     },
     {
-      dataField: 'description',
-      text: 'Product Description',
-      classes: 'desc-column'
+      dataField: "description",
+      text: "Product Description",
+      classes: "desc-column",
     },
     {
-      dataField: 'quantity',
-      text: 'Product Quantity',
-      sort: true
+      dataField: "quantity",
+      text: "Product Quantity",
+      sort: true,
     },
     {
-      dataField: 'price',
-      text: 'Product Price',
-      sort: true
+      dataField: "price",
+      text: "Product Price",
+      sort: true,
     },
     {
-      dataField: 'brand.name',
-      text: 'Product Brand',
-      sort: true
-    }
-  ]
+      dataField: "brand.name",
+      text: "Product Brand",
+      sort: true,
+    },
+  ],
 };
 
 const productReducer = (state = initialState, action) => {
@@ -95,88 +100,89 @@ const productReducer = (state = initialState, action) => {
     case FETCH_PRODUCTS:
       return {
         ...state,
-        products: action.payload
+        products: action.payload,
       };
     case FETCH_PRODUCT:
       return {
         ...state,
         product: action.payload,
         productShopData: {
-          quantity: 1
-        }
+          quantity: 1,
+        },
       };
     case SET_PRODUCTS_LOADING:
       return {
         ...state,
-        isLoading: action.payload
+        isLoading: action.payload,
       };
     case FETCH_PRODUCTS_SELECT:
       return { ...state, productsSelect: action.payload };
     case ADD_PRODUCT:
       return {
         ...state,
-        products: [...state.products, action.payload]
+        products: [...state.products, action.payload],
       };
     case REMOVE_PRODUCT:
       return {
         ...state,
         products: [
           ...state.products.slice(0, action.payload),
-          ...state.products.slice(action.payload + 1)
-        ]
+          ...state.products.slice(action.payload + 1),
+        ],
       };
     case PRODUCT_CHANGE:
       return {
         ...state,
         productFormData: {
           ...state.productFormData,
-          ...action.payload
-        }
+          ...action.payload,
+        },
       };
     case PRODUCT_SHOP_CHANGE:
       return {
         ...state,
         productShopData: {
           ...state.productShopData,
-          ...action.payload
-        }
+          ...action.payload,
+        },
       };
     case PRODUCT_SELECT:
       return {
         ...state,
-        selectedProducts: action.payload
+        selectedProducts: action.payload,
       };
     case SET_PRODUCT_FORM_ERRORS:
       return {
         ...state,
-        formErrors: action.payload
+        formErrors: action.payload,
       };
     case SET_PRODUCT_SHOP_FORM_ERRORS:
       return {
         ...state,
-        shopFormErrors: action.payload
+        shopFormErrors: action.payload,
       };
     case RESET_PRODUCT:
       return {
         ...state,
         productFormData: {
-          whatsapp: '',
-          name: '',
-          image: '',
-          description: '',
+          whatsapp: "",
+          name: "",
+          address: "",
+          image: "",
+          description: "",
           quantity: 1,
-          price: 0
+          price: 0,
         },
         formErrors: {},
-        selectedProducts: []
+        selectedProducts: [],
       };
     case RESET_PRODUCT_SHOP:
       return {
         ...state,
         productShopData: {
-          quantity: 1
+          quantity: 1,
         },
-        shopFormErrors: {}
+        shopFormErrors: {},
       };
     case TOGGLE_ADD_PRODUCT:
       return { ...state, isProductAddOpen: !state.isProductAddOpen };
