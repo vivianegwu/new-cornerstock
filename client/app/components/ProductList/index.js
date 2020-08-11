@@ -37,11 +37,11 @@ const ProductList = (props) => {
                   </div>
                   <div className="item-footer">
                     <p className="price">₦{product.price}</p>
-                    {/* {product.quantity > 0 ? (
+                    {product.quantity > 0 ? (
                     <p className='stock in-stock'>In stock</p>
                   ) : (
                     <p className='stock out-of-stock'>Out of stock</p>
-                  )} */}
+                  )}
                   </div>
                 </div>
               </div>

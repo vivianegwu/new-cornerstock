@@ -8,31 +8,39 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import actions from '../../actions';
-import BrandList from '../../components/BrandList';
+import ProductList from '../../components/ProductList';
 import { MDBCol, MDBInput } from "mdbreact";
 import hcbgImage from "../../../public/images/shop-owner.jpg";
+
+import SearchBar from '@opuscapita/react-searchbar';
+
 
 
 class Homepage extends React.PureComponent {
   componentDidMount() {
-   this.props.fetchBrands();
+   this.props.fetchProducts();
    
 }
 
   render() {
-    const { brands } = this.props;
+    const { products } = this.props;
     
     return (
-      <div className='brands-page'>
+      <div className='products-page'>
       {/* <MDBCol md="6">
         <MDBInput 
-        hint="Search" 
+        hint="Search for products..." 
         type="text"
          containerClass="active-pink active-pink-2 mt-0 mb-3" 
          />
       </MDBCol> */}
+
+      <SearchBar
+        onSearch={this.handleSearch}
+      />
+
       <div
-        className="bg_image"
+        class="bg_image"
         style={{
           backgroundImage: 'url('+hcbgImage+')',
           backgroundSize: "cover",
@@ -40,7 +48,7 @@ class Homepage extends React.PureComponent {
           color: "#f5f5f5"
         }}
       />
-        <BrandList brands={brands} />
+        <ProductList products={products} />
       </div>
 
     );
@@ -49,7 +57,7 @@ class Homepage extends React.PureComponent {
 
 const mapStateToProps = state => {
   return {
-    brands: state.brand.brands
+    products: state.product.products
   };
 };
 
