@@ -11,6 +11,7 @@ import { Row, Col } from 'reactstrap';
 
 const OrderItems = props => {
   const { order } = props;
+  
 
   return (
     <div className='order-items'>
