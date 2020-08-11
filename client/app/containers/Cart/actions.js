@@ -4,10 +4,10 @@
  *
  */
 
-import { push } from 'connected-react-router';
-import { success } from 'react-notification-system-redux';
-import axios from 'axios';
-import cookie from 'react-cookies';
+import { push } from "connected-react-router";
+import { success } from "react-notification-system-redux";
+import axios from "axios";
+import cookie from "react-cookies";
 
 import {
   HANDLE_CART,
@@ -15,26 +15,28 @@ import {
   REMOVE_FROM_CART,
   HANDLE_CART_TOTAL,
   SET_CART_ID,
-  CLEAR_CART
-} from './constants';
+  CLEAR_CART,
+  CHANGE_PAYMENT_METHOD,
+} from "./constants";
 
 import {
   SET_PRODUCT_SHOP_FORM_ERRORS,
-  RESET_PRODUCT_SHOP
-} from '../Product/constants';
+  RESET_PRODUCT_SHOP,
+} from "../Product/constants";
 
-import handleError from '../../utils/error';
-import { toggleCart } from '../Navigation/actions';
-import { allFieldsValidation } from '../../utils/validation';
+import handleError from "../../utils/error";
+import { toggleCart } from "../Navigation/actions";
+import { allFieldsValidation } from "../../utils/validation";
+import { PAYMENT_METHODS } from "../../constants";
 
 // Handle Add To Cart
-export const handleAddToCart = product => {
+export const handleAddToCart = (product) => {
   return (dispatch, getState) => {
     product.quantity = Number(getState().product.productShopData.quantity);
     product.totalPrice = product.quantity * product.price;
 
     const rules = {
-      quantity: 'min:1'
+      quantity: "min:1",
     };
 
     const { isValid, errors } = allFieldsValidation(product, rules);
@@ -44,12 +46,12 @@ export const handleAddToCart = product => {
     }
 
     dispatch({
-      type: RESET_PRODUCT_SHOP
+      type: RESET_PRODUCT_SHOP,
     });
 
     dispatch({
       type: ADD_TO_CART,
-      payload: product
+      payload: product,
     });
     dispatch(calculateCartTotal());
     dispatch(toggleCart());
@@ -57,11 +59,11 @@ export const handleAddToCart = product => {
 };
 
 // Handle Remove From Cart
-export const handleRemoveFromCart = product => {
+export const handleRemoveFromCart = (product) => {
   return (dispatch, getState) => {
     dispatch({
       type: REMOVE_FROM_CART,
-      payload: product
+      payload: product,
     });
     dispatch(calculateCartTotal());
     // dispatch(toggleCart());
@@ -74,13 +76,13 @@ export const calculateCartTotal = () => {
 
     let total = 0;
 
-    cartItems.map(item => {
+    cartItems.map((item) => {
       total += item.price * item.quantity;
     });
 
     dispatch({
       type: HANDLE_CART_TOTAL,
-      payload: total
+      payload: total,
     });
   };
 };
@@ -88,17 +90,17 @@ export const calculateCartTotal = () => {
 // set cart store from cookie
 export const handleCart = () => {
   const cart = {
-    cartItems: cookie.load('cart_items'),
-    itemsInCart: cookie.load('items_in_cart'),
-    cartTotal: cookie.load('cart_total'),
-    cartId: cookie.load('cart_id')
+    cartItems: cookie.load("cart_items"),
+    itemsInCart: cookie.load("items_in_cart"),
+    cartTotal: cookie.load("cart_total"),
+    cartId: cookie.load("cart_id"),
   };
 
   return (dispatch, getState) => {
     if (cart.cartItems != undefined || cart.itemsInCart != undefined) {
       dispatch({
         type: HANDLE_CART,
-        payload: cart
+        payload: cart,
       });
     }
   };
@@ -108,12 +110,12 @@ export const handleCheckout = () => {
   return (dispatch, getState) => {
     const successfulOptions = {
       title: `Please Login to proceed to checkout`,
-      position: 'tr',
-      autoDismiss: 1
+      position: "tr",
+      autoDismiss: 1,
     };
 
     dispatch(toggleCart());
-    dispatch(push('/login'));
+    dispatch(push("/login"));
     dispatch(success(successfulOptions));
   };
 };
@@ -121,7 +123,7 @@ export const handleCheckout = () => {
 // Continue shopping use case
 export const handleShopping = () => {
   return (dispatch, getState) => {
-    dispatch(push('/shop'));
+    dispatch(push("/shop"));
     dispatch(toggleCart());
   };
 };
@@ -130,7 +132,7 @@ export const handleShopping = () => {
 export const getCartId = () => {
   return async (dispatch, getState) => {
     try {
-      const cartId = cookie.load('cart_id');
+      const cartId = cookie.load("cart_id");
       const cartItems = getState().cart.cartItems;
       const products = getCartItems(cartItems);
 
@@ -146,31 +148,40 @@ export const getCartId = () => {
   };
 };
 
-export const setCartId = cartId => {
+export const setCartId = (cartId) => {
   return (dispatch, getState) => {
     dispatch({
       type: SET_CART_ID,
-      payload: cartId
+      payload: cartId,
     });
   };
 };
 
 export const clearCart = () => {
   return (dispatch, getState) => {
-    cookie.remove('cart_items', { path: '/' });
-    cookie.remove('items_in_cart', { path: '/' });
-    cookie.remove('cart_total', { path: '/' });
-    cookie.remove('cart_id', { path: '/' });
+    cookie.remove("cart_items", { path: "/" });
+    cookie.remove("items_in_cart", { path: "/" });
+    cookie.remove("cart_total", { path: "/" });
+    cookie.remove("cart_id", { path: "/" });
 
     dispatch({
-      type: CLEAR_CART
+      type: CLEAR_CART,
     });
   };
 };
 
-const getCartItems = cartItems => {
+export const changePaymentMethod = (paymentMethod) => {
+  return (dispatch, getState) => {
+    dispatch({
+      type: CHANGE_PAYMENT_METHOD,
+      payload: PAYMENT_METHODS[paymentMethod],
+    });
+  };
+};
+
+const getCartItems = (cartItems) => {
   const newCartItems = [];
-  cartItems.map(item => {
+  cartItems.map((item) => {
     const newItem = {};
     newItem.quantity = item.quantity;
     newItem.totalPrice = item.totalPrice;
