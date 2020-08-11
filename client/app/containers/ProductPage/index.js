@@ -97,9 +97,10 @@ class ProductPage extends React.PureComponent {
 
                     <br />
 
-                    <a href="tel:5551234567" className="btn">
+                    <a href="tel:" className="btn">
                         {" "}
                         <FaPhone size={25} style={{ fill: "red" }} />
+                        {product.whatsapp}
                       </a>
 
                     <hr />
@@ -116,7 +117,7 @@ class ProductPage extends React.PureComponent {
                     )}
 
                     <p className="item-desc">{product.description}</p>
-                    <p className="price">GH₵{product.price}</p>
+                    <p className="price">₦{product.price}</p>
                   </div>
 
                   <div className="item-customize">

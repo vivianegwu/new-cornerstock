@@ -36,7 +36,7 @@ const ProductList = (props) => {
                     </Link>
                   </div>
                   <div className="item-footer">
-                    <p className="price">GH₵{product.price}</p>
+                    <p className="price">₦{product.price}</p>
                     {/* {product.quantity > 0 ? (
                     <p className='stock in-stock'>In stock</p>
                   ) : (

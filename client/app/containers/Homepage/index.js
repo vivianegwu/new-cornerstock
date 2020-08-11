@@ -21,16 +21,16 @@ class Homepage extends React.PureComponent {
 
   render() {
     const { brands } = this.props;
-
+    
     return (
       <div className='brands-page'>
-      <MDBCol md="6">
+      {/* <MDBCol md="6">
         <MDBInput 
         hint="Search" 
         type="text"
          containerClass="active-pink active-pink-2 mt-0 mb-3" 
          />
-      </MDBCol>
+      </MDBCol> */}
       <div
         class="bg_image"
         style={{
