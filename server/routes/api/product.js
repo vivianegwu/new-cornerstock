@@ -33,7 +33,6 @@ router.post(
     const description = req.body.description;
     const quantity = req.body.quantity;
     const price = req.body.price;
-    const taxable = req.body.taxable;
     const brand = req.body.brand;
 
     if (!whatsapp) {
@@ -71,7 +70,6 @@ router.post(
       description,
       quantity,
       price,
-      taxable,
       brand,
     });
 
@@ -82,11 +80,11 @@ router.post(
         });
       }
 
-      if (existingProduct) {
-        return res
-          .status(400)
-          .json({ error: "This whatsapp is already in use." });
-      }
+      // if (existingProduct) {
+      //   return res
+      //     .status(400)
+      //     .json({ error: "This whatsapp is already in use." });
+      // }
 
       const product = new Product({
         whatsapp,
@@ -96,7 +94,6 @@ router.post(
         description,
         quantity,
         price,
-        taxable,
         brand,
       });
 

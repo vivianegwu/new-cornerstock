@@ -36,16 +36,12 @@ const initialState = {
     description: "",
     quantity: 1,
     price: 1,
-    taxable: 0,
   },
   isLoading: false,
   productShopData: {
     quantity: 1,
   },
-  taxableSelect: [
-    { value: 1, label: "Yes" },
-    { value: 0, label: "No" },
-  ],
+
   formErrors: {},
   shopFormErrors: {},
   columns: [

@@ -33,7 +33,6 @@ class Product extends React.PureComponent {
       handleBrandSelect,
       selectedBrands,
       brands,
-      taxableSelect
     } = this.props;
 
     return (
@@ -52,7 +51,6 @@ class Product extends React.PureComponent {
               handleBrandSelect={handleBrandSelect}
               selectedBrands={selectedBrands}
               brands={brands}
-              taxableSelect={taxableSelect}
             />
           ) : (
             <Table
@@ -80,7 +78,6 @@ const mapStateToProps = state => {
     formErrors: state.product.formErrors,
     columns: state.product.columns,
     isProductAddOpen: state.product.isProductAddOpen,
-    taxableSelect: state.product.taxableSelect,
     selectedBrands: state.brand.selectedBrands,
     brands: state.brand.brandsSelect
   };

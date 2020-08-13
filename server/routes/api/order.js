@@ -192,25 +192,6 @@ router.get('/:orderId', auth, (req, res) => {
     });
 });
 
-// calculate order tax amount
-const caculateTaxAmount = order => {
-  const taxRate = taxConfig.stateTaxRate;
 
-  order.totalTax = 0;
-
-  order.products.map(item => {
-    if (item.product.taxable) {
-      const price = Number(item.product.price).toFixed(2);
-      const taxAmount = Math.round(price * taxRate * 100) / 100;
-      item.priceWithTax = parseFloat(price) + parseFloat(taxAmount);
-
-      order.totalTax += taxAmount;
-    }
-  });
-
-  order.totalWithTax = order.total + order.totalTax;
-
-  return order;
-};
 
 module.exports = router;

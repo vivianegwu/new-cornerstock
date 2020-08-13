@@ -222,7 +222,6 @@ export const addProduct = () => {
         description: "required|min:10|max:100",
         quantity: "required|numeric",
         price: "required|numeric",
-        taxable: "required",
         brand: "required",
       };
 
@@ -237,7 +236,6 @@ export const addProduct = () => {
       fd.append("description", product.description);
       fd.append("quantity", product.quantity);
       fd.append("price", product.price);
-      fd.append("taxable", product.taxable);
       fd.append("brand", brand);
 
       const newProduct = {

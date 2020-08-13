@@ -40,10 +40,7 @@ const ProductSchema = new Schema({
   price: {
     type: Number,
   },
-  taxable: {
-    type: Boolean,
-    default: false,
-  },
+  
   brand: {
     type: Schema.Types.ObjectId,
     ref: "Brand",
