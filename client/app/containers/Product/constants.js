@@ -18,3 +18,4 @@ export const REMOVE_PRODUCT = 'src/Product/REMOVE_PRODUCT';
 export const PRODUCT_SELECT = 'src/Product/PRODUCT_SELECT';
 export const FETCH_PRODUCTS_SELECT = 'src/Product/FETCH_PRODUCTS_SELECT';
 export const SET_PRODUCTS_LOADING = 'src/Product/SET_PRODUCTS_LOADING';
+export const REPLACE_PRODUCTS = 'src/Product/REPLACE_PRODUCTS';

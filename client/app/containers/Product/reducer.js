@@ -19,6 +19,7 @@ import {
   PRODUCT_SELECT,
   FETCH_PRODUCTS_SELECT,
   SET_PRODUCTS_LOADING,
+  REPLACE_PRODUCTS,
 } from "./constants";
 import { ItemAssignmentContext } from "twilio/lib/rest/numbers/v2/regulatoryCompliance/bundle/itemAssignment";
 
@@ -182,6 +183,11 @@ const productReducer = (state = initialState, action) => {
       };
     case TOGGLE_ADD_PRODUCT:
       return { ...state, isProductAddOpen: !state.isProductAddOpen };
+    case REPLACE_PRODUCTS:
+      return {
+        ...state,
+        products: action.payload,
+      };
     default:
       return state;
   }

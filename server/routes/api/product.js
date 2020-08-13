@@ -20,6 +20,14 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage }).single("image");
 
+router.get("/search", (req, res) => {
+  const searchQuery = req.query.search;
+  Product.find({ name: { $regex: searchQuery, $options: "i" } }, function(err, docs) {
+    // console.log("Partial Search Begins");
+    // console.log(docs);
+    res.send(docs);
+  });
+})
 router.post(
   "/add",
   upload,
