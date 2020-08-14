@@ -19,12 +19,18 @@ import SearchBar from '@opuscapita/react-searchbar';
 class Homepage extends React.PureComponent {
   componentDidMount() {
    this.props.fetchProducts();
-   
 }
 
   render() {
-    const { products } = this.props;
-    
+    const { products, searchResult } = this.props;
+    const handleSearch = data => {
+      console.log(data);
+      if(data.length > 1) {
+        this.props.fetchSearch(data);
+      } else {
+        this.props.fetchProducts();
+      }
+    };
     return (
       <div className='products-page'>
       {/* <MDBCol md="6">
@@ -36,7 +42,7 @@ class Homepage extends React.PureComponent {
       </MDBCol> */}
 
       <SearchBar
-        onSearch={this.handleSearch}
+        onSearch={handleSearch}
       />
 
       <div
@@ -57,7 +63,8 @@ class Homepage extends React.PureComponent {
 
 const mapStateToProps = state => {
   return {
-    products: state.product.products
+    products: state.product.products,
+    searchResult: state.homepage.searchResult
   };
 };
 

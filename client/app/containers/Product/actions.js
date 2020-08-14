@@ -20,9 +20,11 @@ import {
   PRODUCT_SELECT,
   FETCH_PRODUCTS_SELECT,
   SET_PRODUCTS_LOADING,
+  REPLACE_PRODUCTS,
 } from "./constants";
 
 import { RESET_BRAND } from "../Brand/constants";
+
 
 import handleError from "../../utils/error";
 import { formatSelectOptions } from "../../helpers/select";
@@ -281,3 +283,12 @@ export const addProduct = () => {
     }
   };
 };
+
+export const replaceProducts = (value) => {
+  console.log("act", value);
+  return {
+    type: REPLACE_PRODUCTS,
+    payload: value,
+  };
+};
+
