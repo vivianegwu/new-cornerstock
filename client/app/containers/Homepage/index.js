@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import actions from '../../actions';
 import ProductList from '../../components/ProductList';
 import { MDBCol, MDBInput } from "mdbreact";
-import hcbgImage from "../../../public/images/shop-owner.jpg";
+import hcbgImage from "../../../public/images/shop2.jpg";
 
 import SearchBar from '@opuscapita/react-searchbar';
 
@@ -50,7 +50,7 @@ class Homepage extends React.PureComponent {
         style={{
           backgroundImage: 'url('+hcbgImage+')',
           backgroundSize: "cover",
-          height: "45vh",
+          height: "100vh",
           color: "#f5f5f5"
         }}
       />
