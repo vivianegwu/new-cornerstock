@@ -45,7 +45,7 @@ class Homepage extends React.PureComponent {
 
         <section className="container-fluid hero" style={{ backgroundImage: 'url(' + hcbgImage + ')' }}>
           <div className="overlay" />
-          <h1 className="companyName">Conerstock</h1>
+          <h1 className="companyName">Cornerstock</h1>
           <h6 className="slogan">Your favorite store is in stock</h6>
           <SearchBar className="searchbar" onSearch={handleSearch} />
         </section>
