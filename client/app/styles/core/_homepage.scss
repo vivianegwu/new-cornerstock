@@ -14,11 +14,27 @@
   position: relative;
   margin-left: -123px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-position: center;
   z-index: 1;
   margin-top: -70px;
+  @include media-breakpoint-down(xs) {
+    min-height: 300px;
+    margin-left: 0px;
+  }
+
+  .companyName {
+    color: #ffffff !important;
+    font-size: 5rem !important;
+    z-index: 20;
+  }
+  .slogan {
+    color: #ffffff !important;
+    font-size: 2rem !important;
+    z-index: 20;
+  }
 
   .searchbar {
     min-height: 68px;
@@ -36,4 +52,17 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
   }
+  @media only screen and (max-width: 600px) {
+    .companyName {
+      color: #ffffff !important;
+      font-size: 2rem !important;
+      z-index: 20;
+    }
+    .slogan {
+      color: #ffffff !important;
+      font-size: 1rem !important;
+      z-index: 20;
+    }
+  }
+ 
 }
