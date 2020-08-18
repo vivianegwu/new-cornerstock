@@ -2,4 +2,38 @@
   .title {
     font-size: $font-size-heading-x-large !important;
   }
+  .wannaBe {
+    color: red;
+  }
+}
+
+.hero {
+  // background: url('../../../public/images/shop2.jpg');
+  width: 100vw;
+  min-height: 600px;
+  position: relative;
+  margin-left: -123px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  z-index: 1;
+  margin-top: -70px;
+
+  .searchbar {
+    min-height: 68px;
+    padding: 1rem 0.5rem;
+    width: 90%;
+    .oc-react-searchbar-button {
+      background: white;
+    }
+  }
+  .overlay {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 }

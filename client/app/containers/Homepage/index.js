@@ -18,45 +18,43 @@ import SearchBar from '@opuscapita/react-searchbar';
 
 class Homepage extends React.PureComponent {
   componentDidMount() {
-   this.props.fetchProducts();
-}
+    this.props.fetchProducts();
+  }
 
   render() {
     const { products, searchResult } = this.props;
     const handleSearch = data => {
       console.log(data);
-      if(data.length > 1) {
+      if (data.length > 1) {
         this.props.fetchSearch(data);
       } else {
         this.props.fetchProducts();
       }
     };
     return (
-      <div className='products-page'>
-      {/* <MDBCol md="6">
+      <React.Fragment>
+
+        {/* <MDBCol md="6">
         <MDBInput 
         hint="Search for products..." 
         type="text"
-         containerClass="active-pink active-pink-2 mt-0 mb-3" 
-         />
+        containerClass="active-pink active-pink-2 mt-0 mb-3" 
+        />
       </MDBCol> */}
 
-      <SearchBar
-        onSearch={handleSearch}
-      />
 
-      <div
-        class="bg_image"
-        style={{
-          backgroundImage: 'url('+hcbgImage+')',
-          backgroundSize: "cover",
-          height: "100vh",
-          color: "#f5f5f5"
-        }}
-      />
-        <ProductList products={products} />
-      </div>
+        <section className="container-fluid hero" style={{ backgroundImage: 'url(' + hcbgImage + ')' }}>
+          <div className="overlay" />
+          <SearchBar className="searchbar" onSearch={handleSearch} />
+        </section>
 
+        {/* ======== render the products component here ========== */}
+        <div className='products-page'>
+          <ProductList products={products} />
+        </div>
+        {/* ======== render the products component here ========== */}
+
+      </React.Fragment>
     );
   }
 }
