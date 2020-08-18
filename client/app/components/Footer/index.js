@@ -68,17 +68,17 @@ const Footer = () => {
         </div>
         <ul className='footer-social-item'>
           <li>
-            <a href='/#facebook' rel='noreferrer noopener' target='_blank'>
+            <a href='https://www.facebook.com/CornerStock-101946911584273' rel='noreferrer noopener' target='_blank'>
               <span className='facebook-icon' />
             </a>
           </li>
           <li>
-            <a href='/#instagram' rel='noreferrer noopener' target='_blank'>
+            <a href='https://www.instagram.com/cornerstock.app/' rel='noreferrer noopener' target='_blank'>
               <span className='instagram-icon' />
             </a>
           </li>
           <li>
-            <a href='/#twitter' rel='noreferrer noopener' target='_blank'>
+            <a href='https://twitter.com/cornerstock' rel='noreferrer noopener' target='_blank'>
               <span className='twitter-icon' />
             </a>
           </li>
